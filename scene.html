@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            /* background-image: url(images/music.png); */
+            margin: 0;background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            
+            /* background: linear-gradient(to left,  #dbaeb597, #d3bde8, #ffb6c1); */
+        }
+
+        #wrapper {
+            width: 100%; 
+            background-image: url(images/bg-6.jpg);
+             /* height: 600px; */
+            border-radius: 20px;
+             /* margin-left: 60px; 
+            margin-top: 40px; */
+            /* background-image: url(images/music.png); */
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
+
+        #nav {
+            position: sticky;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            display: flex;
+            justify-content: space-around;
+            backdrop-filter: blur(5px); /* Add backdrop-filter for blur effect */
+           /* border-bottom: 2px solid #fff; */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            /* background-color: rgb(245, 239, 239);
+            background: rgba(128, 0, 128, 0.603);
+            background-color: rgba(0, 0, 255, 0.47); */
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 25px;
+            list-style: none;
+        }
+
+        ul li a {
+            color: white;
+            color: #000;
+            text-decoration: none;
+        }
+
+        #songs{
+            margin-top: 30px;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+           gap: 50px;
+            flex-wrap: wrap;
+
+
+        }
+        .music{
+            /* margin-bottom: 50px ; */
+            position: relative;
+            color: white;
+            border: 2px solid white;
+            height: 250px;
+            width: 250px;
+            
+            border-radius: 20px;
+        }
+        .music img{
+            height: 250px;
+            width: 250px;
+            border-radius: 20px;
+        
+        }
+        /* .text{
+            background-color: #fff;
+            color: rgba(20, 87, 20, 0.993);
+            border: 2px solid red;
+            width: 60%;
+            height: 20px;
+            border-radius: 20px;
+            position: absolute;
+            top: 230px;
+        } */
+        .text{
+            text-align: center;
+            /* border: 2px solid yellow; */
+           
+            position: absolute;
+            top: 170px;
+            left: 45px ;
+            border-radius: 20px;
+            
+
+        }
+        .text p{
+            color: white;
+            font-size: 20px;
+           /* padding: 5px; */
+        }
+     
+        span i{
+            padding-left: 5px;
+            color: white;
+        }
+        
+
+
+
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="nav">
+        <img src="images/logo (1).svg" alt=""/>
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="music.html"><i class="fa-solid fa-music"></i> Music</a></li>
+            <li><a href="scene.html"><i class="fa-solid fa-triangle-exclamation"></i> Scene</a></li>
+            <li><a href="#"><i class="fa-solid fa-heart-pulse"></i> Relax & Breath</a></li>
+            <li><a href="#"><i class="fa-solid fa-comments"></i> Talk To Hope</a></li>
+        </ul>
+    </div>
+
+   
+    
+    <div id="songs">
+        <div class="music">
+            <img src="images/lake-sunset.jpg" alt="" class="img">
+           <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
+        </div>
+        <div class="music">
+            <img src="images/lake-sunset.jpg" alt="" >
+             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
+        </div>
+        <div class="music">
+            <img src="images/lake-sunset.jpg" alt="">
+             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
+        </div>
+        <div class="music">
+            <img src="images/lake-sunset.jpg" alt="">
+             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
+        </div>
+        <div class="music">
+            <img src="images/lake-sunset.jpg" alt="">
+             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
+        </div>
+        <div class="music">
+            <img src="images/lake-sunset.jpg" alt="">
+            <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
+        </div>
+       
+        <div class="music">
+            <img src="images/lake-sunset.jpg" alt="">
+             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
+        </div>
+        <div class="music">
+            <img src="images/lake-sunset.jpg" alt="">
+             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
+        </div>
+        <div class="music">
+            <img src="images/lake-sunset.jpg" alt="">
+             <div class="text"><p>Healing Musi <span><i class="fa-solid fa-play"></i></span>c</p></div>
+        </div>
+        <div class="music">
+            <img src="images/lake-sunset.jpg" alt="">
+             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const nav = document.querySelector("#nav");
+const songs = document.querySelector('#songs')
+const div = document.querySelector(".music");
+const img = document.querySelector('.img');
+
+
+div.addEventListener("click", ()=>{
+    div.style.width = '100%' ;
+    img.style.width = '100%' ;
+    div.style.height = '100vh';
+    img.style.height = '100vh';
+    nav.style.display = 'none'; 
+    // songs.style.overflowX = 'hideen';
+    // songs.style.display = 'none' ;
+    
+
+})
+
+</script>
+
+</body>
+</html>
