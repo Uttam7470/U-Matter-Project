@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,44 +12,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
-            /* background-image: url(images/music.png); */
-            margin: 0;background-position: center;
+            margin: 0;
+            background-image: url(images/bg-6.jpg);
+            background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-size: cover;
             padding: 0;
             font-family: "Poppins", sans-serif;
-            
-            /* background: linear-gradient(to left,  #dbaeb597, #d3bde8, #ffb6c1); */
+        }
+        h1{
+            text-align:start;
+            margin: 50px;
         }
 
-        #wrapper {
-            width: 100%; 
-            background-image: url(images/bg-6.jpg);
-             /* height: 600px; */
-            border-radius: 20px;
-             /* margin-left: 60px; 
-            margin-top: 40px; */
-            /* background-image: url(images/music.png); */
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-size: cover;
-            
-        }
+       
 
         #nav {
-            position: sticky;
-            border-top-right-radius: 20px;
-            border-top-left-radius: 20px;
-            display: flex;
-            justify-content: space-around;
-            backdrop-filter: blur(5px); /* Add backdrop-filter for blur effect */
-           /* border-bottom: 2px solid #fff; */
+            padding-top: 10px;
+        background-color: rgba(2, 79, 85, 0.279);
+        background: transparent;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        display: flex;
+        justify-content: space-around;
+        backdrop-filter: blur(5px);
+        border-bottom: 2px solid #fff;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            /* background-color: rgb(245, 239, 239);
-            background: rgba(128, 0, 128, 0.603);
-            background-color: rgba(0, 0, 255, 0.47); */
         }
 
         ul {
@@ -58,154 +49,550 @@
         }
 
         ul li a {
-            color: white;
+            /* color: white; */
             color: #000;
+            /* color: rgb(111, 110, 111);
+            color: rgb(98, 95, 95); */
             text-decoration: none;
         }
-
-        #songs{
-            margin-top: 30px;
+    
+       
+        .content {
+            margin: 60px;
             display: flex;
-            justify-content:center;
+            justify-content: center;
             align-items: center;
-           gap: 50px;
+            height: 100%;
+        }
+
+        .scene-card-container {
+            display: flex;
             flex-wrap: wrap;
-
-
+            justify-content: center;
+            gap: 80px;
+            
         }
-        .music{
-            /* margin-bottom: 50px ; */
+
+        .scene-cards {
             position: relative;
-            color: white;
-            border: 2px solid white;
-            height: 250px;
             width: 250px;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .scene-cards:hover {
+            transform: translateY(-5px);
+        }
+
+        .scene-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .scene-vid-title {
             
-            border-radius: 20px;
-        }
-        .music img{
-            height: 250px;
-            width: 250px;
-            border-radius: 20px;
-        
-        }
-        /* .text{
-            background-color: #fff;
-            color: rgba(20, 87, 20, 0.993);
-            border: 2px solid red;
-            width: 60%;
-            height: 20px;
-            border-radius: 20px;
             position: absolute;
-            top: 230px;
-        } */
-        .text{
-            text-align: center;
-            /* border: 2px solid yellow; */
+            bottom: 0.5rem;
+            left: 0.5rem;
+            display: flex;
            
-            position: absolute;
-            top: 170px;
-            left: 45px ;
-            border-radius: 20px;
-            
+        }
 
+        .scene-vid-title span {
+            color: #fff;
+            margin-bottom: 12px ;
+            margin-left: 4rem;
+            font-size: 1.2rem;
         }
-        .text p{
-            color: white;
-            font-size: 20px;
-           /* padding: 5px; */
+
+        .play-video-icon {
+            position: absolute;
+            bottom: 12px;
+            left: 150px;
+            cursor: pointer;
+            color: #fff;
+            transition: transform 0.3s ease;
         }
-     
-        span i{
-            padding-left: 5px;
-            color: white;
+
+        .play-video-icon:hover,
+        .pause-video-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .sunset-content {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 999;
+        }
+
+        .sunset-content.active-show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .video-container {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+
+        .exit-video {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .exit-video:hover {
+            transform: scale(1.1);
+        }
+
+        .fullscreen .video-container {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: none; 
+            justify-content: space-between;
+            padding: 0.5rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            
+            box-sizing: border-box;
+            align-items: center;
+            z-index: 1000; 
+        }
+
+        .controls.show-controls {
+            display: flex; 
+        }
+
+        .controls .pause-video-icon {
+            color: #fff;
+            display: inline-block;
+        }
+
+        .progress-bar {
+            flex: 1;
+            margin: 0 1rem;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar .progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #fff;
+        }
+
+        .volume-control {
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .volume-control input[type="range"] {
+            width: 60px;
+            height: 5px;
+            margin: 0 0.5rem;
+            -webkit-appearance: none;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .volume-control input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .volume-control input[type="range"]::-moz-range-thumb {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .fullscreen-button {
+            color: #fff;
+            cursor: pointer;
         }
         
-
-
+    
 
     </style>
 </head>
 <body>
-<div id="wrapper">
-    <div id="nav">
-        <img src="images/logo (1).svg" alt=""/>
-        <ul>
-            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li><a href="music.html"><i class="fa-solid fa-music"></i> Music</a></li>
-            <li><a href="scene.html"><i class="fa-solid fa-triangle-exclamation"></i> Scene</a></li>
-            <li><a href="#"><i class="fa-solid fa-heart-pulse"></i> Relax & Breath</a></li>
-            <li><a href="#"><i class="fa-solid fa-comments"></i> Talk To Hope</a></li>
-        </ul>
+    <div id="wrapper">
+        <div id="nav">
+            <img src="images/logo (1).svg" alt=""/>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="music.html"><i class="fa-solid fa-music"></i> Music</a></li>
+                <li><a href="scene.html"><i class="fa-solid fa-triangle-exclamation"></i> Scene</a></li>
+                <li><a href="relax&breath.html"><i class="fa-solid fa-heart-pulse"></i> Relax & Breath</a></li>
+                <li><a href="hope.html"><i class="fa-solid fa-comments"></i> Talk To Hope</a></li>
+            </ul>
+        </div>
+
+        <!-- <h1>Scene  </h1> -->
+        
+
+
+        <body>
+            <div class="content scene">
+                <div class="scene-card-container">
+                    <!-- Sunset Lake -->
+                    <div class="scene-cards">
+                        <img src="images/lake-sunset.jpg" alt="" class="scene-image">
+                        <div class="scene-vid-title">
+                            <span>Sunset</span>
+                            <i class="fas fa-play-circle fa-2x play-video-icon"></i>
+                            <i class="fas fa-pause-circle fa-2x pause-video-icon" style="display: none;"></i>
+                        </div>
+                    </div>
+                    <!-- Forest Sunset -->
+                    <div class="scene-cards">
+                        <img src="images/river forest.jpg" alt="" class="scene-image">
+                        <div class="scene-vid-title">
+                            <span>Forest</span>
+                            <i class="fas fa-play-circle fa-2x play-video-icon"></i>
+                            <i class="fas fa-pause-circle fa-2x pause-video-icon" style="display: none;"></i>
+                        </div>
+                    </div>
+        
+                    <div class="scene-cards">
+                        <img src="images/rain-night.jpg" alt="" class="scene-image">
+                        <div class="scene-vid-title">
+                            <span>Rain</span>
+                            <i class="fas fa-play-circle fa-2x play-video-icon"></i>
+                            <i class="fas fa-pause-circle fa-2x pause-video-icon" style="display: none;"></i>
+                        </div>
+                    </div>
+        
+                    <div class="scene-cards">
+                        <img src="images/falls.jpg" alt="" class="scene-image">
+                        <div class="scene-vid-title">
+                            <span>Waterfall</span>
+                            <i class="fas fa-play-circle fa-2x play-video-icon"></i>
+                            <i class="fas fa-pause-circle fa-2x pause-video-icon" style="display: none;"></i>
+                        </div>
+                    </div>
+                    <div class="scene-cards">
+                        <img src="images/snow.jpg" alt="" class="scene-image">
+                        <div class="scene-vid-title">
+                            <span>Snow</span>
+                            <i class="fas fa-play-circle fa-2x play-video-icon"></i>
+                            <i class="fas fa-pause-circle fa-2x pause-video-icon" style="display: none;"></i>
+                        </div>
+                    </div>
+                    <div class="scene-cards">
+                        <img src="images/ice-lake.jpg" alt="" class="scene-image">
+                        <div class="scene-vid-title">
+                            <span>Lake</span>
+                            <i class="fas fa-play-circle fa-2x play-video-icon"></i>
+                            <i class="fas fa-pause-circle fa-2x pause-video-icon" style="display: none;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Sunset Content -->
+            <!-- Sunset 1 -->
+            <div class="sunset-content">
+                <i class="fas fa-times exit-video"></i>
+                <div class="video-container">
+                    <video loop class="video-container-sunset">
+                        <source src="video/855623-hd_1620_1080_24fps.mp4" type="video/mp4">
+                    </video>
+                    <audio class="video-audio">
+                        <source src="songs/sunset lake.mp3" type="audio/mpeg">
+                    </audio>
+                    <div class="controls">
+                        <i class="fas fa-pause-circle fa-lg pause-video-icon"></i>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="volume-control">
+                            <i class="fas fa-volume-up"></i>
+                            <input type="range" min="0" max="1" step="0.01" value="1">
+                        </div>
+                        <div class="fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sunset 2 -->
+            <div class="sunset-content">
+                <i class="fas fa-times exit-video"></i>
+                <div class="video-container">
+                    <video loop class="video-container-sunset">
+                        <source src="video/river-viedo.mp4"       type="video/mp4">
+                    </video>
+                    <audio class="video-audio">
+                        <source src="songs/river.mp3" type="audio/mpeg">
+                    </audio>
+                    <div class="controls">
+                        <i class="fas fa-pause-circle fa-lg pause-video-icon"></i>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="volume-control">
+                            <i class="fas fa-volume-up"></i>
+                            <input type="range" min="0" max="1" step="0.01" value="1">
+                        </div>
+                        <div class="fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sunset-content">
+                <i class="fas fa-times exit-video"></i>
+                <div class="video-container">
+                    <video loop class="video-container-sunset">
+                        <source src="video/rain-night.mp4"       type="video/mp4">
+                    </video>
+                    <audio class="video-audio">
+                        <source src="songs/rain.mp3" type="audio/mpeg">
+                    </audio>
+                    <div class="controls">
+                        <i class="fas fa-pause-circle fa-lg pause-video-icon"></i>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="volume-control">
+                            <i class="fas fa-volume-up"></i>
+                            <input type="range" min="0" max="1" step="0.01" value="1">
+                        </div>
+                        <div class="fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sunset-content">
+                <i class="fas fa-times exit-video"></i>
+                <div class="video-container">
+                    <video loop class="video-container-sunset">
+                        <source src="video/river-viedo.mp4"       type="video/mp4">
+                    </video>
+                    <audio class="video-audio">
+                        <source src="songs/fall.mp3" type="audio/mpeg">
+                    </audio>
+                    <div class="controls">
+                        <i class="fas fa-pause-circle fa-lg pause-video-icon"></i>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="volume-control">
+                            <i class="fas fa-volume-up"></i>
+                            <input type="range" min="0" max="1" step="0.01" value="1">
+                        </div>
+                        <div class="fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sunset-content">
+                <i class="fas fa-times exit-video"></i>
+                <div class="video-container">
+                    <video loop class="video-container-sunset">
+                        <source src="video/snow-viedo.mp4"       type="video/mp4">
+                    </video>
+                    <audio class="video-audio">
+                        <source src="songs/snow.mp3" type="audio/mpeg">
+                    </audio>
+                    <div class="controls">
+                        <i class="fas fa-pause-circle fa-lg pause-video-icon"></i>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="volume-control">
+                            <i class="fas fa-volume-up"></i>
+                            <input type="range" min="0" max="1" step="0.01" value="1">
+                        </div>
+                        <div class="fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sunset-content">
+                <i class="fas fa-times exit-video"></i>
+                <div class="video-container">
+                    <video loop class="video-container-sunset">
+                        <source src="video/ice-lake-viedo.mp4"       type="video/mp4">
+                    </video>
+                    <audio class="video-audio">
+                        <source src="songs/ice lake.mp3" type="audio/mpeg">
+                    </audio>
+                    <div class="controls">
+                        <i class="fas fa-pause-circle fa-lg pause-video-icon"></i>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="volume-control">
+                            <i class="fas fa-volume-up"></i>
+                            <input type="range" min="0" max="1" step="0.01" value="1">
+                        </div>
+                        <div class="fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
     </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-FN6+TXyopkAv1MU7tkjcgiaE0MQD9vfuTx0FH/rkt+q4Q+bCX8c+X+vCwlXlCi+wN3aWwXZRjALdkJzFd3zZDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const videos = document.querySelectorAll(".video-container-sunset");
+        const videoAudios = document.querySelectorAll(".video-audio");
+        const exitVideos = document.querySelectorAll(".exit-video");
+        const playIcons = document.querySelectorAll(".play-video-icon");
+        const pauseIcons = document.querySelectorAll(".pause-video-icon");
+        const controlsList = document.querySelectorAll(".controls");
+        const progresses = document.querySelectorAll(".progress");
+        const progressBars = document.querySelectorAll(".progress-bar");
+        const volumeRanges = document.querySelectorAll("input[type='range']");
+        const fullscreenButtons = document.querySelectorAll(".fullscreen-button");
+
+        function toggleVideo(index) {
+    const sunsetContent = document.querySelectorAll(".sunset-content")[index];
+    const video = videos[index];
+    const videoAudio = videoAudios[index];
+
+    sunsetContent.classList.toggle("active-show");
+
+    if (video.paused) {
+        video.play();
+        videoAudio.play(); // Start playing audio
+        playIcons[index].style.display = "none";
+        pauseIcons[index].style.display = "inline-block";
+        controlsList[index].classList.add("show-controls");
+    } else {
+        video.pause();
+        videoAudio.pause(); // Pause audio
+        playIcons[index].style.display = "inline-block";
+        pauseIcons[index].style.display = "none";
+        controlsList[index].classList.remove("show-controls");
+    }
+}
+
+        function updateProgress(index) {
+            const progressValue = (videos[index].currentTime / videos[index].duration) * 100;
+            progresses[index].style.width = progressValue + "%";
+        }
+
+        function setProgress(index, e) {
+            const newTime = (e.offsetX / progressBars[index].offsetWidth) * videos[index].duration;
+            videos[index].currentTime = newTime;
+        }
+
+        function adjustVolume(index) {
+            videos[index].volume = volumeRanges[index].value;
+            videoAudios[index].volume = volumeRanges[index].value;
+        }
+
+        function toggleFullscreen(index) {
+            if (!document.fullscreenElement) {
+                videos[index].requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function closeVideo(index) {
+            const sunsetContent = document.querySelectorAll(".sunset-content")[index];
+            sunsetContent.classList.remove("active-show");
+            videos[index].pause();
+            videos[index].currentTime = 0;
+            videoAudios[index].pause();
+            controlsList[index].classList.remove("show-controls");
+            playIcons[index].style.display = "inline-block";
+            pauseIcons[index].style.display = "none";
+        }
+
+        playIcons.forEach((icon, index) => {
+            icon.addEventListener("click", () => toggleVideo(index));
+        });
+
+        pauseIcons.forEach((icon, index) => {
+            icon.addEventListener("click", () => toggleVideo(index));
+        });
+
+        exitVideos.forEach((exitVideo, index) => {
+            exitVideo.addEventListener("click", () => closeVideo(index));
+        });
+
+        videos.forEach((video, index) => {
+            video.addEventListener("timeupdate", () => updateProgress(index));
+        });
+
+        progressBars.forEach((progressBar, index) => {
+            progressBar.addEventListener("click", (e) => setProgress(index, e));
+        });
+
+        volumeRanges.forEach((volumeRange, index) => {
+            volumeRange.addEventListener("input", () => adjustVolume(index));
+        });
+
+        fullscreenButtons.forEach((fullscreenButton, index) => {
+            fullscreenButton.addEventListener("click", () => toggleFullscreen(index));
+        });
+
+
+        videos.forEach((video, index) => {
+    video.addEventListener("play", function() {
+        videoAudios[index].play();
+    });
+});
+
+videos.forEach((video, index) => {
+    video.addEventListener("pause", function() {
+        videoAudios[index].pause();
+    });
+});
+    </script>
 
    
-    
-    <div id="songs">
-        <div class="music">
-            <img src="images/lake-sunset.jpg" alt="" class="img">
-           <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
-        </div>
-        <div class="music">
-            <img src="images/lake-sunset.jpg" alt="" >
-             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
-        </div>
-        <div class="music">
-            <img src="images/lake-sunset.jpg" alt="">
-             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
-        </div>
-        <div class="music">
-            <img src="images/lake-sunset.jpg" alt="">
-             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
-        </div>
-        <div class="music">
-            <img src="images/lake-sunset.jpg" alt="">
-             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
-        </div>
-        <div class="music">
-            <img src="images/lake-sunset.jpg" alt="">
-            <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
-        </div>
-       
-        <div class="music">
-            <img src="images/lake-sunset.jpg" alt="">
-             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
-        </div>
-        <div class="music">
-            <img src="images/lake-sunset.jpg" alt="">
-             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
-        </div>
-        <div class="music">
-            <img src="images/lake-sunset.jpg" alt="">
-             <div class="text"><p>Healing Musi <span><i class="fa-solid fa-play"></i></span>c</p></div>
-        </div>
-        <div class="music">
-            <img src="images/lake-sunset.jpg" alt="">
-             <div class="text"><p>Healing Music <span><i class="fa-solid fa-play"></i></span></p></div>
-        </div>
-    </div>
-</div>
-
-<script>
-    const nav = document.querySelector("#nav");
-const songs = document.querySelector('#songs')
-const div = document.querySelector(".music");
-const img = document.querySelector('.img');
-
-
-div.addEventListener("click", ()=>{
-    div.style.width = '100%' ;
-    img.style.width = '100%' ;
-    div.style.height = '100vh';
-    img.style.height = '100vh';
-    nav.style.display = 'none'; 
-    // songs.style.overflowX = 'hideen';
-    // songs.style.display = 'none' ;
-    
-
-})
-
-</script>
-
 </body>
 </html>
+

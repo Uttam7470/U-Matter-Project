@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relax and Breathe</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(images/bg-1.jpg);
+           /* background-image: url(breath-img/breath-girl-2.avif); */
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+
+        #circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            background-color: #4caf9e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: white;
+            position: relative;
+            transition: width 5s, height 5s;
+        }
+
+        #startButton {
+            position: absolute;
+            bottom: 20px;
+            background-color: #4CAF50;
+            background-color: #4caf9e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+
+        #closeButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            z-index: 9999;
+        }
+        #wrapper{
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            /* background-color: darksalmon; */
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+    <div id="circle"></div>
+    <button id="startButton">Start</button>
+</div>
+    <script>
+        const circle = document.getElementById('circle');
+        const startButton = document.getElementById('startButton');
+        let isBreathingIn = false;
+
+        startButton.addEventListener('click', () => {
+            if (!isBreathingIn) {
+                isBreathingIn = true;
+                circle.innerText = 'Breathe In';
+                circle.style.width = '350px';
+                circle.style.height = '350px';
+
+                setTimeout(() => {
+                    circle.innerText = 'Breathe Out';
+                    circle.style.width = '250px';
+                    circle.style.height = '250px';
+                    isBreathingIn = false;
+                }, 5000);
+            }
+        });
+
+        // Adding close button dynamically
+        const closeButton = document.createElement('button');
+        closeButton.id = 'closeButton';
+        closeButton.innerText = 'Close';
+        closeButton.addEventListener('click', () => {
+            // Redirect to the "Relax and Breathe" page
+            window.location.href = 'relax&breath.html';
+        });
+        document.body.appendChild(closeButton);
+    </script>
+</body>
+</html>
+
+
+

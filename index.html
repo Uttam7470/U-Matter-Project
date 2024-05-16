@@ -1,170 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
+      body {
+        background-image: url(images/bg-6.jpg);
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        overflow: hidden;
+      }
 
-        body {
-            /* background-image: url(images/—Pngtree—meditation\ yoga\ sitting\ exercise\ illustration_6234814.png); */
-            background-image: url(images/bg-6.jpg);
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            font-family: "Poppins", sans-serif;
-            overflow: hidden;
-           
-        }
+      #wrapper {
+        background-image: url(images/—Pngtree—meditation\ yoga\ sitting\ exercise\ illustration_6234814.png);
+        width: 100vw;
+        height: 100vh;
 
-        #wrapper {
-              background-image: url(images/—Pngtree—meditation\ yoga\ sitting\ exercise\ illustration_6234814.png);
-            width: 100%; 
-            height: 100vh;
-             /* height: 620px; */
-            border-radius: 20px;
-           
-            /* background-image: url(images/img-side-2.jpg); */
-            
-          
-            background-position: right;
-            /* background-position: center; */
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-size: contain;
-            
-        }
+        border-radius: 20px;
 
-        #nav {
-            padding-top: 10px;
-            background-color: rgba(2, 79, 85, 0.279);
-            background: transparent;
-            border-top-right-radius: 20px;
-            border-top-left-radius: 20px;
-            display: flex;
-            justify-content: space-around;  
-         backdrop-filter: blur(5px); /* Add backdrop-filter for blur effect */
-           border-bottom: 2px solid #fff;
+        background-position: right;
+
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      #nav {
+        padding-top: 10px;
+        background-color: rgba(2, 79, 85, 0.279);
+        background: transparent;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        display: flex;
+        justify-content: space-around;
+        backdrop-filter: blur(5px);
+        border-bottom: 2px solid #fff;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
+      }
 
-        ul {
-            display: flex;
-            justify-content: space-evenly;
-            gap: 25px;
-            list-style: none;
-        }
+      ul {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 25px;
+        list-style: none;
+      }
 
-        ul li a {
-            color: #fff;
-            color: black;
-            text-decoration: none;
-        }
+      ul li a {
+        color: #fff;
+        color: black;
+        /* color: rgb(98, 95, 95); */
+        text-decoration: none;
+      }
 
-        .content {
-            margin-left: 80px;
-            margin-left: 100px;
-            margin-top: 50px;
-            width: 60%;
-            padding: 20px;
-            animation: slideIn 1s ease-in-out forwards;
-        }
+      .content {
+        margin-left: 80px;
+        margin-left: 100px;
+        margin-top: 50px;
+        width: 60%;
+        padding: 20px;
+        animation: slideIn 1s ease-in-out forwards;
+      }
 
-        .content h1 {
-            font-size: 40px;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 20px;
-            /* color: #ffb6c1; */
-        }
+      .content h1 {
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 1.4;
+        margin-bottom: 20px;
+        /* color: #ffb6c1; */
+      }
 
-        .content p {
-            line-height: 1.4;
-            font-size: 20px;
-            font-weight: 100;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            margin-top: 30px;
-        }
+      .content p {
+        line-height: 1.4;
+        font-size: 20px;
+        font-weight: 100;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        margin-top: 30px;
+      }
 
-        .content .heading {
-            color: #bf9cdf;
-        }
+      .content .heading {
+        color: #bf9cdf;
+      }
 
-        span {
-            color: #ffb6c1;
-        }
+      span {
+        color: #ffb6c1;
+      }
 
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            border-radius: 20px;
-            border: none;
-            background-color: rgb(0, 191, 255);
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+      button {
+        font-size: 18px;
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: none;
+        background-color: rgb(0, 191, 255);
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
 
-        button:hover {
-            background-color: rgb(48, 70, 77);
-        }
+      button:hover {
+        background-color: rgb(48, 70, 77);
+      }
 
-        @keyframes slideIn {
-            0% {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
+      @keyframes slideIn {
+        0% {
+          transform: translateY(-50px);
+          opacity: 0;
         }
-        .png img{
-            border: 2px solid;
-            height: 250px;
-            width: 250px;
+        100% {
+          transform: translateY(0);
+          opacity: 1;
         }
-
-
+      }
+      .png img {
+        border: 2px solid;
+        height: 250px;
+        width: 250px;
+      }
+      #changableText {
+        max-width: 80%;
+      }
     </style>
-</head>
-<body>
-<div id="wrapper">
-    <div id="nav">
-        <img src="images/logo (1).svg" alt=""/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="nav">
+        <img src="images/logo (1).svg" alt="" />
         <ul>
-            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li><a href="music.html"><i class="fa-solid fa-music"></i> Music</a></li>
-            <li><a href="scene.html"><i class="fa-solid fa-triangle-exclamation"></i> Scene</a></li>
-            <li><a href="relax&breath.html"><i class="fa-solid fa-heart-pulse"></i> Relax & Breath</a></li>
-            <li><a href="#"><i class="fa-solid fa-comments"></i> Talk To Hope</a></li>
+          <li>
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+          </li>
+          <li>
+            <a href="music.html"><i class="fa-solid fa-music"></i> Music</a>
+          </li>
+          <li>
+            <a href="scene.html"
+              ><i class="fa-solid fa-triangle-exclamation"></i> Scene</a
+            >
+          </li>
+          <li>
+            <a href="relax&breath.html"
+              ><i class="fa-solid fa-heart-pulse"></i> Relax & Breath</a
+            >
+          </li>
+          <li>
+            <a href="talkTohope.html"
+              ><i class="fa-solid fa-comments"></i> Talk To Hope</a
+            >
+          </li>
         </ul>
-    </div>
-    <div class="content">
-        <h1>Watch your <span class="heading">breath</span>. <br>
-            <span>Relax </span>your mind.
+      </div>
+      <div class="content">
+        <h1>
+          Watch your <span class="heading">breath</span>. <br />
+          <span>Relax </span>your mind.
         </h1>
-        <p>Meditation helps you see yourself as distinct from your thoughts,<br>
-            feelings, impulses, beliefs, opinions, hopes, and dreams. Make it part <br>
-            of your life.</p>
-            <div>
+        <p>
+          Meditation helps you see yourself as distinct from your thoughts,<br />
+          feelings, impulses, beliefs, opinions, hopes, and dreams. Make it part
+          <br />
+          of your life.
+        </p>
+        <div>
+          <!-- <div id="quote-container">
+                <div id="quote-text"></div>
+                <div id="quote-author"></div>
+            </div> -->
 
-             <div class="png">
-                <!-- <img src="images/—Pngtree—meditation yoga sitting exercise illustration_6234814.png" alt=""> -->
-             </div>
-       
-        
+          <p id="changableText"></p>
+        </div>
+      </div>
     </div>
-    </div>
-</div>
 
+    <script>
+      const changableText = document.getElementById("changableText");
 
+      const typeWriter = () => {
+        function fetchQuotesByCategory(category) {
+          const apiKey = "uf/5LKns52NJhEC5iEUjvw==Ka5URptJ49dKRvBe";
+          const url = `https://api.api-ninjas.com/v1/quotes?category=${category}`;
 
-</body>
+          fetch(url, {
+            method: "GET",
+            headers: {
+              "X-Api-Key": apiKey,
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log(data);
+              showDataOnBrowser(data);
+            })
+            .catch((error) => {
+              console.error("Error fetching quotes:", error);
+            });
+        }
+
+        function showDataOnBrowser(data) {
+          let i = 0;
+
+          const typeWord = () => {
+            changableText.innerHTML = "";
+            let j = 0;
+            const text = data[i].quote;
+            const author = data[i].author;
+            const typeLetter = () => {
+              if (j <= text.length - 1) {
+                changableText.innerHTML += text[j];
+                j++;
+
+                if (j === text.length) {
+                  changableText.innerHTML += `<br>- ${author}`;
+                  i = (i + 1) % data.length;
+                  setTimeout(
+                    fetchQuotesByCategory.bind(null, "happiness"),
+                    5000
+                  );
+                  return;
+                }
+
+                setTimeout(typeLetter, 50);
+              }
+            };
+            typeLetter();
+          };
+
+          typeWord();
+        }
+
+        fetchQuotesByCategory("happiness");
+      };
+
+      typeWriter();
+    </script>
+  </body>
 </html>
