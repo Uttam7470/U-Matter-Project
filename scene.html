@@ -262,7 +262,7 @@
             <ul>
                 <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li><a href="music.html"><i class="fa-solid fa-music"></i> Music</a></li>
-                <li><a href="scene.html"><i class="fa-solid fa-triangle-exclamation"></i> Scene</a></li>
+                <li><a href="scene.html"><i class="fa-solid fa-mountain"></i> Scene</a></li>
                 <li><a href="relax&breath.html"><i class="fa-solid fa-heart-pulse"></i> Relax & Breath</a></li>
                 <li><a href="hope.html"><i class="fa-solid fa-comments"></i> Talk To Hope</a></li>
             </ul>
@@ -503,13 +503,13 @@
 
     if (video.paused) {
         video.play();
-        videoAudio.play(); // Start playing audio
+        videoAudio.play(); 
         playIcons[index].style.display = "none";
         pauseIcons[index].style.display = "inline-block";
         controlsList[index].classList.add("show-controls");
     } else {
         video.pause();
-        videoAudio.pause(); // Pause audio
+        videoAudio.pause(); 
         playIcons[index].style.display = "inline-block";
         pauseIcons[index].style.display = "none";
         controlsList[index].classList.remove("show-controls");
